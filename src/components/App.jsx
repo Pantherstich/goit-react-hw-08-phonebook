@@ -14,6 +14,7 @@ import { RestrictedRoute } from '../routes/RestrictedRoute';
 const App = () => {
   const dispatch = useDispatch();
   const { isRefreshing } = useAuth();
+
   useEffect(() => {
     dispatch(currentUserThunk());
   }, [dispatch]);
@@ -22,14 +23,7 @@ const App = () => {
     <b>Refreshing user...</b>
   ) : (
     <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route
-          path="/contacts"
-          element={
-            <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
-          }
-        ></Route>
-      </Route>
+      <Route path="/" element={<Layout />}></Route>
       <Route
         path="/login"
         element={
@@ -43,6 +37,13 @@ const App = () => {
             redirectTo="/contacts"
             component={<RegistrationPage />}
           />
+        }
+      ></Route>
+
+      <Route
+        path="/contacts"
+        element={
+          <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
         }
       ></Route>
     </Routes>

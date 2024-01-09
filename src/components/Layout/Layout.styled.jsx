@@ -34,7 +34,9 @@ export const BtnLogout = styled.button`
   }
 `;
 export const Container = styled.div`
+  /* display: flex; */
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   width: 100%;
   align-items: center;

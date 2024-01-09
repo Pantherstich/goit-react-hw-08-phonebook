@@ -11,6 +11,9 @@ import {
 } from './Layout.styled';
 import { removeToken } from '../../Service/api';
 import { currentUserThunk, logoutThunk } from '../../redux/auth/thunks';
+import { ContactForm } from 'components/ContactForm/ContactForm';
+import { Filter } from 'components/Filter/Filter';
+import { ContactList } from 'components/ContactList/ContactList';
 // import { currentUserThunk, logoutThunk } from '../../redux/Auth/thunks';
 
 const Layout = ({ children }) => {
@@ -65,6 +68,11 @@ const Layout = ({ children }) => {
           <Outlet />
         </Suspense>
       )}
+
+      <ContactForm />
+      <h2>Contacts</h2>
+      <Filter />
+      <ContactList />
     </Div>
   );
 };
